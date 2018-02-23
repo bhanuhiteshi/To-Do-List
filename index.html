@@ -1,0 +1,71 @@
+<!doctype html>
+<html ng-app="toDoApp" ng-controller="toDoController">
+
+<head>
+  <title>To-Do List App (using AngularJS 1.x)</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link href="./assets/css/style.css" rel='stylesheet'>
+</head>
+
+<body>
+  <div class="container margin-top-50">
+    <div class="content">
+      <div class="card bg-dark text-white">
+        <div class="card-body">To-Do List - Tasks ({{ tasks.length }})</div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <form class="form-inline" ng-submit="add()">
+            <div class="form-group">
+              <input type="text" placeholder="Enter Task Description" ng-model="newTaskName" class="form-control task-input">
+            </div>
+            <div class="form-group">
+              <input class="btn btn-success" type="submit" value="Create Task" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="card bg-light text-dark">
+        <div class="card-body">
+          <div class="checkbox select-all">
+            <label>
+              <input type="checkbox" ng-model="selectedAll" ng-click="checkAll()"> Select All
+            </label>
+          </div>
+          <div >
+            <button class="btn btn-sm btn-danger pull-right" ng-click="remove()">
+            <i class="fa fa-close"></i> Delete Selected
+          </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" ng-repeat="task in tasks">
+      <div class="card-body">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="task.selected"> {{ task.title }}
+          </label>
+          <div class="btn btn-sm btn-danger pull-right" ng-click="remove($index)">
+            <i class="fa fa-close"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="./assets/js/script.js"></script>
+
+</body>
+
+</html>

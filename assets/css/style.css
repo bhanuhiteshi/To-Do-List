@@ -1,0 +1,5 @@
+.margin-top-50{ margin-top:50px}
+.checkbox label input[type="checkbox"], .radio label input[type="radio"] { height: 20px; width: 20px;  position: absolute;  top: 22px;  left: 20px; }
+.checkbox label { margin-left: 30px; }
+.task-input{ min-width:400px; margin-right:10px; }
+.checkbox.select-all{ display: inline-block; }
